@@ -8,7 +8,7 @@ export class AddTodo extends Component {
 
   onChange = (e) => {
       this.setState({
-          title: e.target.value
+          [e.target.name]: e.target.value
       })
   }  
   render() {
