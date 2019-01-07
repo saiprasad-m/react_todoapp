@@ -6,6 +6,11 @@ export class AddTodo extends Component {
         title: ''
     }
 
+  onSubmit = (e) => {
+      e.preventDefault();
+      this.props.addTodo(this.state.title);
+      this.setState({ title: ''})
+  }
   onChange = (e) => {
       this.setState({
           [e.target.name]: e.target.value
@@ -13,7 +18,10 @@ export class AddTodo extends Component {
   }  
   render() {
     return (
-      <form style={{display: 'flex', padding: '3px'}}>
+      <form 
+        style={{display: 'flex', padding: '3px'}}
+        onSubmit={this.onSubmit}
+        >
             <input 
                 type="text" 
                 name="title" 
